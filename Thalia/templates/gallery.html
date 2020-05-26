@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="hero is-fullheight-with-navbar">
+    <div class="section">
+        {% if not portfolios %}
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column has-text-centered">
+                    <p class="subtitle">
+                        It looks like you haven't saved any portfolios yet. Head to the
+                        <a href="{{ url_for('/dashboard/') }}" class="has-color-inspire">dashboard</a> to start backtesting.
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div id="gallery-ancestor" class="tile is-ancestor">
+            {% for porto in portfolios %}
+            <div class="tile is-parent is-4">
+                <!-- <button> onclick="share_portfolio({{porto.id}}, this)">Share</> -->
+                <article class="tile is-child box" style="background-color: #feedd0;">
+                    <p class="title has-text-centered">{{porto.name}}</p>
+                    <div class="level">
+                        <button class="button level-item-left is-primary" onclick="window.location = '{{ url_for('/dashboard/') }}/{{porto.id}}'" style="background-color: #f26a4b;">
+              Open
+            </button>
+                        <div class="button share-btn level-item-right is-info" data-portfolio="{{porto.id}}" style="background-color: #f23d3d;">
+                            Make Public
+                        </div>
+                    </div>
+                    {% if porto.link %}
+                    <div class="columns">
+                        {% else %}
+                        <div id="public-link-div-{{porto.id}}" class="columns is-hidden">
+                            {% endif %}
+                            <!-- Target -->
+                            <div class="column is-four-fifths">
+                                <input id="public-link-{{porto.id}}" value="{{porto.link}}" class="input" readonly />
+                            </div>
+                            <div class="column has-text-right">
+                                <!-- Trigger -->
+                                <button class="button btn" data-clipboard-target="#public-link-{{porto.id}}">
+                <i class="fa fa-clipboard" alt="Copy to clipboard"></i>
+              </button>
+                            </div>
+                        </div>
+                        <hr /> {% for asset in porto.strat.assets %}
+                        <p class="subtitle" style="text-align: left;">
+                            {% set ticker = asset.ticker.split("|")[0] %} {{ticker}}
+                            <span style="float: right;">
+              {{asset.weight}}%
+            </span>
+                        </p>
+                        {% endfor %}
+                </article>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{url_for('static', filename='scripts/share-porto.js')}}"></script>
+    {% endblock %}

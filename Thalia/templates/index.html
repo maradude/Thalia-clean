@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script rel="script" src="{{ url_for('static', filename='scripts/scroll-down.js') }}"></script>
+<style>
+    .has-background-main {
+        background: url(../static/images/index/thalia_background.jpg) center / cover;
+    }
+    
+    .has-background-stonks {
+        background: url(../static/images/index/stonks.jpg) center / cover;
+    }
+</style>
+
+
+<!-- Hero -->
+<section class="hero has-background-main is-fullheight-with-navbar">
+    <!-- Text -->
+    <header class="hero-body">
+        <div class="columns is-full">
+            <div class="column is-half">
+            </div>
+            <div class="column is-hidden-mobile has-text-left single-spaced" style="top: 400px;">
+                <h1 class="title is-1 has-text-white" style="padding-bottom: 0.3cm;">
+                    What is Thalia?
+                </h1>
+                <h1 class="subtitle is-4 has-text-weight-light has-text-white has-text-justified">
+                    Thalia is the reliable backtesting tool that helps you assess the viability of your investment strategies and compare them with various benchmarks.
+                </h1>
+            </div>
+            <div class="column is-hidden-tablet has-text-centered single-spaced" style="top: 400px;">
+                <h1 class="title is-1 has-text-white" style="padding-bottom: 0.3cm;">
+                    Thalia
+                </h1>
+                <h1 class="subtitle is-4 has-text-right has-text-weight-light has-text-white has-text-justified">
+                    - The Reliable Backtester
+                </h1>
+            </div>
+        </div>
+        </div>
+    </header>
+    <!-- /Text -->
+    <!-- Arrow -->
+    <main class="hero-foot center">
+        <p class="level-item has-text-centered">
+            <a class="ct-btn-scroll ct-js-btn-scroll btn-lg" href="#section2">
+                <img alt="Arrow Down Icon" src="static/images/index/arrow.png">
+            </a>
+        </p>
+    </main>
+</section>
+<!-- /Arrow -->
+<!-- /Hero -->
+
+<!-- Section2 -->
+<div class="card is-light-bold">
+    <section id="section2">
+        <div class="card-content">
+            <p class="title">
+                <h2 class="title is-3">What is Backtesting?</h2>
+            </p>
+            <p class="subtitle">
+                <h1 class="subtitle is-4 has-text-weight-light has-text-justified">
+                    Before risking any real capital, traders generally like to know that their strategy will be profitable. While no-one can see into the future, we can sometimes get a good idea of performance by looking at the past. This process of analysing a portfolio
+                    on historic data is known as backtesting.
+                </h1>
+            </p>
+        </div>
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <a class="tag" href="{{ url_for('main.about') }}" class="card-footer-item">Learn more</a>
+            </p>
+        </footer>
+    </section>
+</div>
+<!-- /Section2 -->
+
+<!-- Divider hero -->
+<div class="hero is-medium has-background-stonks">
+    <section id="divider">
+        <div class="hero-body">
+            <div class="container">
+                &emsp;
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /Divider hero -->
+
+
+
+<!-- Section3 -->
+<div class="card">
+    <section id="section3">
+
+        <div class="card-content">
+            <div class="columns is-vcentered">
+                <div class="column is-half ">
+                    {% if current_user.is_anonymous %}
+                    <p class="title">
+                        <h2 class="title is-3 has-text-centered">Still with us?</h2>
+                    </p>
+                    <h1 class="subtitle is-4 has-text-weight-light has-text-black has-text-justified">
+                        Go ahead and create an account, or log in if you already have one. Once registered, you can backtest to your heart's content.
+                    </h1>
+                    {% else %}
+                    <p class="title">
+                        <h2 class="title is-3 has-text-centered">Already signed in?</h2>
+                    </p>
+                    <h1 class="subtitle is-4 has-text-weight-light has-text-black has-text-centered">
+                        Why not jump right in and create your dream portfolio? If you would like to stick around, make sure to follow us on our social media pages to see our latest.
+                    </h1>
+                    {% endif %}
+                </div>
+                <!-- Register -->
+                <div class="column">
+                    <section id="contact" class="section section-light-grey is-medium">
+                        <div class="container">
+                            {% if current_user.is_anonymous %}
+                            <div class="title-wrapper has-text-centered">
+                                <h2 class="title is-2 is-spaced">Register</h2>
+                                <div class="divider is-centered"></div>
+                            </div>
+
+                            <div class="content-wrapper">
+                                <div class="columns">
+                                    <div class="column">
+                                        <div id="login_failed">
+                                            {% if scroll %}
+                                            <script>
+                                                document.location.hash = '#' + '{{ scroll }}';
+                                            </script>
+                                            {% endif %} {% include 'error.html' %} {% include 'register_form.html' %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="media-content">
+                                    <div class="content">
+                                        <a class="twitter-timeline" href="https://twitter.com/Thalia99627941?ref_src=twsrc%5Etfw">Tweets by Thalia99627941</a>
+                                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                    </section>
+                    </div>
+                    <!-- /Register -->
+                </div>
+            </div>
+    </section>
+    </div>
+    <!-- /Section3 -->
+    {% endblock %}

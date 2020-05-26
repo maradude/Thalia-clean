@@ -1,0 +1,65 @@
+.has-background-inspire1 {
+  background-color: #01191c !important;
+}
+
+.has-background-inspire2 {
+  background-color: #01434a !important;
+}
+
+.has-background-inspire3 {
+  background-color: #f26a4b !important;
+}
+
+.has-background-inspire4 {
+  background-color: #f23d3d !important;
+}
+
+.has-background-inspire5 {
+  background-color: #feedd0 !important;
+}
+
+.tag {
+  color: #f26a4b !important;
+  background-color: transparent !important;
+}
+
+.is-inspire:after {
+  border-color: #f26a4b !important;
+}
+
+ul>li {
+  margin-left: 25px;
+}
+
+.columns.is-full {
+  flex: none;
+  width: 100%;
+}
+
+.has-color-inspire {
+  color: #f26a4b !important;
+}
+
+.has-background-main {
+  background: url(../static/images/index/thalia_background.jpg) center / cover;
+}
+
+.has-background-stonks {
+  background: url(../static/images/index/stonks.jpg) center / cover;
+}
+
+#gallery-ancestor {
+  flex-wrap: wrap;
+}
+
+#gallery-ancestor .is-parent:hover {
+  cursor: pointer;
+}
+
+.register-errors {
+  list-style: disc;
+}
+
+.register-container {
+  color: white;
+}

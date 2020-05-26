@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .has-background-main {
+    background: url(../static/images/index/thalia_background.jpg) center / cover;
+  }
+</style>
+
+<!-- Login -->
+<div class="hero is-medium has-background-main">
+  <section id="contact" class="section section-light-grey is-large">
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="columns">
+          <div class="column is-half"></div>
+          <div class="column">
+            <div class="title-wrapper has-text-centered">
+              <h2 class="title is-2 is-spaced has-text-light">Log in</h2>
+              <div class="divider is-centered"></div>
+            </div>
+            {% include 'error.html' %}
+
+            {% include 'login_form.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- /Login -->
+{% endblock %}

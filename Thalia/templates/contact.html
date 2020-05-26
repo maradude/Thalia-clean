@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .has-background-main {
+      background: url(../static/images/index/thalia_background.jpg) center / cover;
+    }
+    .tag {
+      color: #F26A4B !important;
+      background-color: transparent !important;
+    }
+</style>
+<!-- Section1 -->
+<div class="hero is-medium is-bold has-background-main">
+  <section id="divider">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-multiline is-full">
+          <div class="column is-12">
+            &emsp;
+          </div>
+          <div class="column is-6">
+
+          </div>
+          <div class="column is-6">
+            <h2 class="title is-2 has-text-light">
+              Have something to say?
+            </h2>
+            <div class="column is-12">
+
+            </div>
+            <h1 class="subtitle is-4 has-text-weight-light has-text-justified has-text-light">
+              Did you find something we should take a look at, or do you just have some general feedback? Remember, we are here to listen. Feel free to report your complaints and feedback here.
+            </h1>
+          </div>
+          <div class="column is-half">
+
+          </div>
+          <div class="column">
+            <form role="form" method="POST" novalidate>
+
+                  {{ form.hidden_tag() }}
+
+                  <div class="columns is-multiline">
+                      <div class="column is-12">
+                          &emsp;
+                      </div>
+                      <div class="column is-12">
+                        {{ form.email(placeholder="Email Address",class="input is-medium", rows="1", class="textarea") }}
+                      </div>
+                      <div class="column is-12">
+                          {{ form.title(placeholder="Title", class="input is-medium", rows="1", class="textarea")}}
+                      </div>
+                      <div class="column is-12">
+                          {{ form.contents(placeholder="Contents",class="input is-large", rows="10", class="textarea") }}
+                      </div>
+
+                      
+                      <div class="column is-12" style="text-align:right;">
+                        <div class="form-footer has-text-right mt-10">
+                            <button type="submit" class="button is-primary has-background-inspire4 raised is-clear send-feedback-btn" >Send Feedback</button>
+                        </div>
+                      </div>
+
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  <!-- /Section1 -->
+{% endblock %}

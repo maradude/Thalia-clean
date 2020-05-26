@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thalia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/stylesheets/base.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+    {% include 'navbar.html' %} {% block content %} {% endblock %}
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <div>
+                <h1 class="subtitle is-5 has-text-weight-light has-text-black">
+                    Don't forget to reach out to us on social media.
+                </h1>
+            </div>
+            <div>
+                <a href="https://twitter.com/Thalia99627941" class="twitter-link">
+                    <i class="fab fa-twitter fa-2x has-color-inspire"></i>
+                </a>
+                <a href="https://www.facebook.com/Thalia-Backtester-101459001526511/" class="facebook-link">
+                    <i class="fab fa-facebook fa-2x has-color-inspire"></i>
+                </a>
+            </div>
+            <hr>
+            <div>
+                <h1 class="subtitle is-6 has-text-weight-light has-text-black">
+                    The Site may provide certain financial market data that has been independently obtained by certain financial market information services. All data and Information is provided "as is" and the Information is intended solely as general information for educational
+                    and entertainment purposes only and is neither professional stock broker advice for any investment nor a substitute for other professional advice and services from qualified financial services providers familiar with your financial
+                    situation. Decisions based on Information contained within the Site are your sole responsibility. Always seek the advice of your financial advisor or other qualified financial services provider regarding any investment. The Information
+                    is provided with the understanding that Thalia is not engaged in rendering professional services or advice, and is not a registered investment advisor. Your use of the Site is subject to this disclaimer: Thalia assumes no responsibility
+                    for any consequences relating directly or indirectly to any action or inaction you take based on the Information or other material on this Site. You agree that Thalia, the Information Providers, and the Information Transmitters shall
+                    not be liable in any way for the accuracy, completeness, timeliness, or correct sequencing of the Information, or for any decision made or action taken by you relying upon the Information. Thalia reserves the right to modify or discontinue,
+                    temporarily or permanently, all or any portion of the Site with or without notice.
+                </h1>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

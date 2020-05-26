@@ -1,0 +1,58 @@
+<form role="form" method="post" action="" class="registration-form">
+  {{ form.hidden_tag() }}
+
+  <div class="columns is-multiline">
+    <div class="column is-12">
+      {{ form.username(placeholder="Username", class="input is-medium", size=32)
+      }}
+    </div>
+
+    {% if form.username.errors %}
+        <ul class="errors">
+        	{% for error in form.username.errors %}
+        		<li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="column is-12">
+      {{ form.password(placeholder="Password",class="input is-medium",
+      type="password", size=32) }}
+    </div>
+
+    {% if form.password.errors %}
+      {% if form.password.errors|length  > 1 %}
+        <ul class="errors register-errors">
+      {% else %}
+        <ul class="errors">
+    {% endif %}
+        	{% for error in form.password.errors %}
+            <li class="register-error-item">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="column is-12">
+      {{ form.confirm_password(placeholder="Confirm Password",class="input
+      is-medium", type="password", size=32) }}
+    </div>
+
+    <div class="column is-7" style="text-align:left;">
+      <div class="form-footer has-text-left mt-10">
+        <button
+          type="submit"
+          class="button is-primary has-background-inspire4 raised is-clear submit-btn"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="form-footer has-text-right mt-10">
+        <p class="has-text-light">Already have an account?</p>
+        <a class="tag" href="{{ url_for('main.login') }}">Login</a>
+      </div>
+    </div>
+  </div>
+</form>
